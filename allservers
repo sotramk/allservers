@@ -7,8 +7,9 @@
 # The most recent "reverse" history follows:.
 #
 # 04-May-2017: Modified to my liking, removed --no-confirm, added verbose
-# option to cacheclean and added script to check for pacnew and pacsave 
-# files. -sot
+# option to pkgcacheclean and added script to check for pacnew and pacsave 
+# files. - sotramk
+
 # 18-July-2016: Added a sixth menu option that allows the user to delete
 # the db.lck file that obstructs an upgrade after an incomplete/interupted
 # upgrade attempt. This option will be a little time saver every now & then.
@@ -113,9 +114,11 @@ case "$option" in
 
  "1")
  echo
- msg "Processing mirrors:"
+ #$msg "Processing mirrors:"
+ $msg "Create Mirror List"
  echo
- sudo pacman-mirrors -g
+ #sudo pacman-mirrors -g
+ sudo pacman-mirrors -ic United_States,Germany
  echo
  msg "Your mirrors have been ranked &"
  msg "the mirrorlist has now been refreshed."
@@ -156,7 +159,8 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
- ;;
+ grep --extended-regexp "pac(new|save)" /var/log/pacman.log
+  ;;
 # Note double semicolon to terminate each option.
 
  "3")
@@ -209,6 +213,7 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
+ grep --extended-regexp "pac(new|save)" /var/log/pacman.log
  ;;
 # Note double semicolon to terminate each option.
 
@@ -228,6 +233,7 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
+ grep --extended-regexp "pac(new|save)" /var/log/pacman.log
  ;;
 # Note double semicolon to terminate each option.
 
