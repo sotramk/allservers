@@ -86,7 +86,7 @@ echo
 echo -e " \e[0;33m   Enter Your chosen Option's number \e[0;32m[\e[1;37m?\e[0;32m] \e[4;37mOR\e[0m\e[0;32m hit \e[0;31mReturn\e[0;32m to \e[0;31mexit\e[0;32m. "
 echo
 echo
-echo -e "    [\e[1;37m1\e[0;32m] Rank Mirrors & update mirrorlist: \033[0mpacman-mirrors -g" 
+echo -e "    [\e[1;37m1\e[0;32m] Create & update mirrorlist: \033[0mpacman-mirrors -g" 
 echo -e "       \e[0;33m &\e[0;32m then sync/refresh package lists: \033[0mpacman -Syy "
 echo
 echo -e "   \e[0;32m [\e[1;37m2\e[0;32m] Option 1. \e[0;33mplus\e[0;32m Upgrade the System: \033[0mpacman -Syu"
@@ -114,8 +114,7 @@ case "$option" in
 
  "1")
  echo
- #$msg "Processing mirrors:"
- $msg "Create Mirror List"
+ msg "Create Mirror List:"
  echo
  #sudo pacman-mirrors -g
  sudo pacman-mirrors -ic United_States,Germany
