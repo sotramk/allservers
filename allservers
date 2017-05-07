@@ -68,14 +68,6 @@ msg() {
 }
 
 
-## The following 5 lines are the now redundant test for root.
-# if  [ "$EUID" != 0 ];
-# then
-#   err "Must use 'sudo su' before you run this script."
-#   exit 1
-# fi
-
-
 # The menu:
 
 clear # Clear the screen.
@@ -166,7 +158,6 @@ case "$option" in
  echo
  msg "Processing mirrors:"
  echo
- #sudo pacman-mirrors -f 10
  sudo pacman-mirrors -g
  echo
  msg "Your mirrors have been ranked &"
