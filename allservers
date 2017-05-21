@@ -170,7 +170,7 @@ case "$option" in
  echo
  msg "Upgrading System & AUR:"
  echo
- yaourt -Syua 
+ pacaur -Syyu 
  echo
  msg "System including AUR packages are up to date."
  echo
@@ -211,7 +211,7 @@ case "$option" in
  echo
  msg "Upgrading System & AUR: "
  echo
- yaourt -Syua
+ pacaur -Syyu
  echo
  msg "System including AUR packages are up to date. "
  echo
