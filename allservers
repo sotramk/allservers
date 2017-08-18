@@ -6,8 +6,8 @@
 #
 # The most recent "reverse" history follows:.
 #
-# 04-May-2017: Modified to my liking, removed --no-confirm, switched from using yaourt
-#   to pacaur, added verbose option to pkgcacheclean and added script to check for pacnew and pacsave 
+# 04-May-2017: Modified to my liking, removed --no-confirm, added verbose
+# option to pkgcacheclean and added script to check for pacnew and pacsave 
 # files. - sotramk
 
 # 18-July-2016: Added a sixth menu option that allows the user to delete
@@ -108,7 +108,6 @@ case "$option" in
  echo
  msg "Create Mirror List:"
  echo
- #sudo pacman-mirrors -g
  sudo pacman-mirrors -ic all 
  echo
  msg "Your mirrors have been ranked &"
