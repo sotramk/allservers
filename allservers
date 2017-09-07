@@ -157,8 +157,8 @@ case "$option" in
  echo
  msg "Processing mirrors:"
  echo
- #sudo pacman-mirrors -g
- sudo pacman-mirrors -f 5
+ sudo pacman-mirrors -g
+ #sudo pacman-mirrors -f 5
  echo
  msg "Your mirrors have been ranked &"
  msg "the mirrorlist has now been refreshed."
