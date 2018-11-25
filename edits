@@ -108,7 +108,7 @@ case "$option" in
  echo
  msg "Create Mirror List:"
  echo
- sudo pacman-mirrors -ic all
+ sudo pacman-mirrors -ic United_States,Canada,Germany
  echo
  msg "Your mirrors have been ranked &"
  msg "the mirrorlist has now been refreshed."
@@ -172,7 +172,7 @@ case "$option" in
  echo
  msg "Upgrading System & AUR:"
  echo
- pacaur -Syyu
+ yay-Syyu
  echo
  msg "System including AUR packages are up to date."
  echo
@@ -215,7 +215,7 @@ case "$option" in
  echo
  msg "Upgrading System & AUR: "
  echo
- pacaur -Syyu
+ yay -Syu
  echo
  msg "System including AUR packages are up to date. "
  echo
