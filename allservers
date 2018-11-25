@@ -223,7 +223,7 @@ case "$option" in
  msg "recent versions of the installation packages in "
  msg "/var/cache/pacman/pkg directory:"
  echo
- sudo pkgcacheclean -vk
+ sudo pkgcacheclean -kv
  echo
  msg "pkgCacheClean has done its job. "
  echo
