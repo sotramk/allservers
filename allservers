@@ -159,20 +159,19 @@ case "$option" in
  echo
  msg "Processing mirrors:"
  echo
- #sudo pacman-mirrors -g
  sudo pacman-mirrors -f 5
  echo
  msg "Your mirrors have been ranked &"
  msg "the mirrorlist has now been refreshed."
  echo
  msg "Refreshing your pacman database:"
- #sudo pacman -Syy
+ sudo pacman -Syy
  echo
  msg "Your mirrors & package database are now synchronised."
  echo
  msg "Upgrading System & AUR:"
  echo
- yay-Syyu
+ yay-Syu
  echo
  msg "System including AUR packages are up to date."
  echo
