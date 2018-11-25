@@ -125,7 +125,6 @@ case "$option" in
  echo
  msg "Processing mirrors:"
  echo
-# sudo pacman-mirrors -g
  sudo pacman-mirrors -f 5
  echo
  msg "Your mirrors have been ranked &"
@@ -150,7 +149,6 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
- #grep --extended-regexp "pac(new|save)" /var/log/pacman.log
  yaourt -C
  ;;
 # Note double semicolon to terminate each option.
@@ -193,7 +191,7 @@ case "$option" in
  echo
  msg "Upgrading System:"
  echo
- sudo pacman -Syyu
+ yay -Syu
  echo
  msg "System update complete."
  echo
@@ -225,7 +223,6 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
- #grep --extended-regexp "pac(new|save)" /var/log/pacman.log
  yaourt -C
  ;;
 # Note double semicolon to terminate each option.
