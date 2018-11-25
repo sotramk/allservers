@@ -108,7 +108,7 @@ case "$option" in
  echo
  msg "Create Mirror List:"
  echo
- sudo pacman-mirrors -ic all
+ sudo pacman-mirrors -ic United_States,Canada,Germany
  echo
  msg "Your mirrors have been ranked &"
  msg "the mirrorlist has now been refreshed."
@@ -159,20 +159,19 @@ case "$option" in
  echo
  msg "Processing mirrors:"
  echo
- #sudo pacman-mirrors -g
  sudo pacman-mirrors -f 5
  echo
  msg "Your mirrors have been ranked &"
  msg "the mirrorlist has now been refreshed."
  echo
  msg "Refreshing your pacman database:"
- #sudo pacman -Syy
+ sudo pacman -Syy
  echo
  msg "Your mirrors & package database are now synchronised."
  echo
  msg "Upgrading System & AUR:"
  echo
- pacaur -Syyu
+ yay-Syu
  echo
  msg "System including AUR packages are up to date."
  echo
@@ -206,7 +205,6 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
-# grep --extended-regexp "pac(new|save)" /var/log/pacman.log
  yaourt -C
  ;;
 # Note double semicolon to terminate each option.
@@ -215,7 +213,7 @@ case "$option" in
  echo
  msg "Upgrading System & AUR: "
  echo
- pacaur -Syyu
+ yay -Syu
  echo
  msg "System including AUR packages are up to date. "
  echo
