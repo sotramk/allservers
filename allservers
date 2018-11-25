@@ -206,7 +206,6 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
-# grep --extended-regexp "pac(new|save)" /var/log/pacman.log
  yaourt -C
  ;;
 # Note double semicolon to terminate each option.
