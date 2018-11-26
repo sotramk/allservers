@@ -79,18 +79,18 @@ echo -e " \e[0;33m   Enter Your chosen Option's number \e[0;32m[\e[1;37m?\e[0;32
 echo
 echo
 echo -e "    [\e[1;37m1\e[0;32m] Create & update mirrorlist: \033[0mpacman-mirrors -ic all"
-echo -e "       \e[0;33m &\e[0;32m then sync/refresh package lists: \033[0mpamac update "
+echo -e "       \e[0;33m &\e[0;32m then sync/refresh package lists: \033[0mpamac update -a --force-refresh"
 echo
-echo -e "   \e[0;32m [\e[1;37m2\e[0;32m] Option 1. \e[0;33mplus\e[0;32m Upgrade the System: \033[0mpamac update"
+echo -e "   \e[0;32m [\e[1;37m2\e[0;32m] Option 1. \e[0;33mplus\e[0;32m Upgrade the System: \033[0mpamac update -a --force-refresh"
 echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpkgcacheclean "
 echo
-echo -e "   \e[0;32m [\e[1;37m3\e[0;32m] Option 1. \e[0;33mplus\e[0;32m Upgrade the System & AUR: \033[0mpamac update"
+echo -e "   \e[0;32m [\e[1;37m3\e[0;32m] Option 1. \e[0;33mplus\e[0;32m Upgrade the System & AUR: \033[0mpamac update -a"
 echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpkgcacheclean "
 echo
-echo -e "   \e[0;32m [\e[1;37m4\e[0;32m] Upgrade the System only: \033[0mpamac update "
+echo -e "   \e[0;32m [\e[1;37m4\e[0;32m] Upgrade the System only: \033[0mpamac update -a"
 echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpkgcacheclean "
 echo
-echo -e "   \e[0;32m [\e[1;37m5\e[0;32m] Upgrade the System & AUR only: \033[0mpamac update "
+echo -e "   \e[0;32m [\e[1;37m5\e[0;32m] Upgrade the System & AUR only: \033[0mpamac update -a"
 echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpkgcacheclean "
 echo
 echo -e "   \e[0;32m [\e[1;37m6\e[0;32m] Delete \e[0;33mdb.lck\e[0;32m after interupted upgrade: \033[0mrm /var/lib/pacman/db.lck "
@@ -114,8 +114,7 @@ case "$option" in
  msg "the mirrorlist has now been refreshed."
  echo
  msg "Refreshing your pacman database:"
- #sudo pacman -Syy
- pamac update
+ pamac update -a --force-refresh
  echo
  msg "Your mirrors & package database are now synchronised."
  echo
@@ -132,14 +131,10 @@ case "$option" in
  msg "the mirrorlist has now been refreshed."
  echo
  msg "Refreshing your pacman database:"
- #sudo pacman -Syy
  echo
+ pamac update -a --force-refresh
  msg "Your mirrors & package database are now synchronised."
  echo
- msg "Upgrading System:"
- echo
-# sudo pacman -Syu
- pamac update
  echo
  msg "System upgrade complete."
  echo
@@ -164,15 +159,11 @@ case "$option" in
  msg "Your mirrors have been ranked &"
  msg "the mirrorlist has now been refreshed."
  echo
- msg "Refreshing your pacman database:"
-# sudo pacman -Syy
+ msg "Refreshing your pacman database and upgrading system and AUR:"
+ pamac update -a --force-refresh
  echo
  msg "Your mirrors & package database are now synchronised."
  echo
- msg "Upgrading System & AUR:"
- echo
-# yay-Syu
- pamac update
  echo
  msg "System including AUR packages are up to date."
  echo
@@ -194,8 +185,7 @@ case "$option" in
  echo
  msg "Upgrading System:"
  echo
-# yay -Syu
- pamac update
+ pamac update -a
  echo
  msg "System update complete."
  echo
@@ -215,8 +205,7 @@ case "$option" in
  echo
  msg "Upgrading System & AUR: "
  echo
-# yay -Syu
- pamac update
+ pamac update -a
  echo
  msg "System including AUR packages are up to date. "
  echo
