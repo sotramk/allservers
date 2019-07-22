@@ -7,6 +7,6 @@ made a few changes to fit my needs
 
 -removed --no-confirm from all update commands
 
--added a command to option 3 to look for pacnew/pacsave files in
+-added a command to look for pacnew/pacsave files after updates
    /var/log/pacmnan.log
 
