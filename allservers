@@ -227,8 +227,13 @@ case "$option" in
  echo
  sudo rm /var/lib/pacman/db.lck
  echo
- msg "File db.lck removed, re-attempt your intended installation. "
+ msg "File db.lck removed, re-attempting yourupdate. "
  echo
+ pamac udate -a
+ echo
+ sudo pkgcacheclean -kv
+ echo
+ yaourt -C
  ;;
 # Note double semicolon to terminate each option.
 
