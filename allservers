@@ -146,7 +146,7 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
- yaourt -C
+ locate --existing --regex "\.pac(new|orig\save)$"
  ;;
 # Note double semicolon to terminate each option.
 
@@ -175,9 +175,8 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
- #locate --existing --regex "\.pac(new|orig\save)$"
+ locate --existing --regex "\.pac(new|orig\save)$"
  #grep --extended-regexp "pac(new|save)" /var/log/pacman.log
- yaourt -C
  ;;
 # Note double semicolon to terminate each option.
 
@@ -197,7 +196,8 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
- yaourt -C
+ locate --existing --regex "\.pac(new|orig\save)$"
+
  ;;
 # Note double semicolon to terminate each option.
 
@@ -217,7 +217,7 @@ case "$option" in
  echo
  msg "pkgCacheClean has done its job. "
  echo
- yaourt -C
+ locate --existing --regex "\.pac(new|orig\save)$"
  ;;
 # Note double semicolon to terminate each option.
 
@@ -233,7 +233,7 @@ case "$option" in
  echo
  sudo pkgcacheclean -kv
  echo
- yaourt -C
+ locate --existing --regex "\.pac(new|orig\save)$"
  ;;
 # Note double semicolon to terminate each option.
 
