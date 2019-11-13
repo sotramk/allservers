@@ -1,4 +1,4 @@
-#!/bin/bash
+j!/bin/bash
 # The allservers script (I dropped the .sh off of the end) was
 # written by handy, with a little help from others, it is
 # released under a free for all public domain license, do what
@@ -82,16 +82,16 @@ echo -e "    [\e[1;37m1\e[0;32m] Create & update mirrorlist: \033[0mpacman-mirro
 echo -e "       \e[0;33m &\e[0;32m then sync/refresh package lists: \033[0mpamac update -a --force-refresh"
 echo
 echo -e "   \e[0;32m [\e[1;37m2\e[0;32m] Option 1. \e[0;33mplus\e[0;32m Upgrade the System: \033[0mpamac update -a --force-refresh"
-echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpkgcacheclean "
+echo -e "       \e[0;33m &\e[0;32m then run paccahe: \033[0mpaccache "
 echo
 echo -e "   \e[0;32m [\e[1;37m3\e[0;32m] Option 1. \e[0;33mplus\e[0;32m Upgrade the System & AUR: \033[0mpamac update -a"
 echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpkgcacheclean "
 echo
 echo -e "   \e[0;32m [\e[1;37m4\e[0;32m] Upgrade the System only: \033[0mpamac update -a"
-echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpkgcacheclean "
+echo -e "       \e[0;33m &\e[0;32m then run paccache: \033[0mpaache "
 echo
 echo -e "   \e[0;32m [\e[1;37m5\e[0;32m] Upgrade the System & AUR only: \033[0mpamac update -a"
-echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpkgcacheclean "
+echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpaccache "
 echo
 echo -e "   \e[0;32m [\e[1;37m6\e[0;32m] Delete \e[0;33mdb.lck\e[0;32m after interupted upgrade: \033[0mrm /var/lib/pacman/db.lck "
 echo -e "       \e[0;32m this should remedy the unable to lock database error. "
@@ -138,15 +138,17 @@ case "$option" in
  echo
  msg "System upgrade complete."
  echo
- msg "pkgCacheClean will now remove all but the 2 most "
+ msg "paccache will now remove all but the 2 most "
  msg "recent versions of the installation packages in "
  msg "/var/cache/pacman/pkg directory:"
  echo
- sudo pkgcacheclean -kv
+ #sudo pkgcacheclean -kv
+ sudo paccache -rv -k 2
  echo
  msg "pkgCacheClean has done its job. "
  echo
- locate --existing --regex "\.pac(new|orig\save)$"
+ #locate --existing --regex "\.pac(new|orig\save)$"
+ sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
 
@@ -171,12 +173,15 @@ case "$option" in
  msg "recent versions of the installation packages in "
  msg "/var/cache/pacman/pkg directory:"
  echo
- sudo pkgcacheclean -kv
+ #sudo pkgcacheclean -kv
+ sudo paccache -rv -k 2
+
  echo
  msg "pkgCacheClean has done its job. "
  echo
- locate --existing --regex "\.pac(new|orig\save)$"
+ #locate --existing --regex "\.pac(new|orig\save)$"
  #grep --extended-regexp "pac(new|save)" /var/log/pacman.log
+ sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
 
@@ -192,12 +197,13 @@ case "$option" in
  msg "recent versions of the installation packages in "
  msg "/var/cache/pacman/pkg directory:"
  echo
- sudo pkgcacheclean -kv
+ #sudo pkgcacheclean -kv
+ sudo paccache -rv -k 2
  echo
  msg "pkgCacheClean has done its job. "
  echo
- locate --existing --regex "\.pac(new|orig\save)$"
-
+ #locate --existing --regex "\.pac(new|orig\save)$"
+ sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
 
@@ -213,11 +219,13 @@ case "$option" in
  msg "recent versions of the installation packages in "
  msg "/var/cache/pacman/pkg directory:"
  echo
- sudo pkgcacheclean -kv
+ #sudo pkgcacheclean -kv
+ sudo paccache -rv -k 2
  echo
  msg "pkgCacheClean has done its job. "
  echo
- locate --existing --regex "\.pac(new|orig\save)$"
+ #locate --existing --regex "\.pac(new|orig\save)$"
+ sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
 
@@ -231,7 +239,8 @@ case "$option" in
  echo
  pamac udate -a
  echo
- sudo pkgcacheclean -kv
+ #sudo pkgcacheclean -kv
+ sudo paccache -rv -k-2
  echo
  locate --existing --regex "\.pac(new|orig\save)$"
  ;;
