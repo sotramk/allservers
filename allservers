@@ -108,7 +108,7 @@ case "$option" in
  echo
  msg "Create Mirror List:"
  echo
- sudo pacman-mirrors -ic United_States,Canada,Germany
+ sudo pacman-mirrors -ic United_States Germany United_Kingdom Denmark France
  echo
  msg "Your mirrors have been ranked &"
  msg "the mirrorlist has now been refreshed."
@@ -237,12 +237,12 @@ case "$option" in
  echo
  msg "File db.lck removed, re-attempting yourupdate. "
  echo
- pamac udate -a
+ pamac update -a
  echo
  #sudo pkgcacheclean -kv
  sudo paccache -rv -k-2
  echo
- locate --existing --regex "\.pac(new|orig\save)$"
+# locate --existing --regex "\.pac(new|orig\save)$"
  ;;
 # Note double semicolon to terminate each option.
 
