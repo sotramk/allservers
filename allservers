@@ -106,7 +106,7 @@ case "$option" in
 
  "1")
  echo
- msg "Refresh Mirror List and update system:"
+ msg "Create Mirror List and Update System:"
  echo
  sudo pacman-mirrors -ic United_States Germany United_Kingdom Denmark France
  echo
@@ -123,7 +123,7 @@ case "$option" in
 
  "2")
  echo
- msg "Processing mirrors:"
+ msg "Select Mirror and update system:"
  echo
  sudo pacman-mirrors -f 5
  echo
