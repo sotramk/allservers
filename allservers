@@ -106,7 +106,7 @@ case "$option" in
 
  "1")
  echo
- msg "Create Mirror List:"
+ msg "Refresh Mirror List and update system:"
  echo
  sudo pacman-mirrors -ic United_States Germany United_Kingdom Denmark France
  echo
