@@ -1,54 +1,10 @@
-j!/bin/bash
-# The allservers script (I dropped the .sh off of the end) was
+#!/bin/bash
+#
+# The allservers script was
 # written by handy, with a little help from others, it is
 # released under a free for all public domain license, do what
 # you will with it.
-#
-# The most recent "reverse" history follows:.
-#
-# 04-May-2017: Modified to my liking, removed --no-confirm, added verbose
-# option to pkgcacheclean and added command to check for pacnew and pacsave
-# files. - sotramk
 
-# 18-July-2016: Added a sixth menu option that allows the user to delete
-# the db.lck file that obstructs an upgrade after an incomplete/interupted
-# upgrade attempt. This option will be a little time saver every now & then.
-#
-# 15-Jan-2015: Modified the script so that it is NOT called via an alias
-# with sudo su -c , the script now uses sudo internally.
-# Options [2] & [3] now have the --noconfirm parameter added, try it,
-# if you don't like it, then delete --noconfirm from the script.
-#
-# 22-May-2014: Changed the title name to allservers . (Big change huh?)
-#
-# 20-November-2013: Removed stuff from the menu that really next to
-# no one needs to see. The menu just does its job now, nothing more or less.
-#
-# 17-November-2013: I've finally felt like spending the time to improve
-# (imho) the colours of the menu & I've also refined it some.
-#
-# 10-July-2013: Now using pkgCacheClean instead of CacheClean. It uses
-# pacman's version checking method.
-#
-# 11-June-2013: Made Option 1. available (it is useful on the odd occasion).
-# Made the display more informative during the progress of each option.
-#
-# 13-May-2013: Removed the ability for Option 1. to be run standalone,
-# due to having been told to read this:
-# https://wiki.archlinux.org/index.php/Pacman#Partial_upgrades_are_unsupported
-#
-# 27-April-2013: Updated to use the new pacman-mirrors -g to rankmirrors.
-#
-# The script started in 2012, that history is not needed.
-#
-# allservers.sh - inspired by Manjaro's Carl & Philm, initially hung together
-# by handy, the script's display prettied up & progress information added by Philm,
-# the menu & wiki page added by handy.
-# Latest revision now calls everything via the menu.
-# The following wiki page is about this script & you should know
-# as you are in it!:
-# https://wiki.manjaro.org/index.php?title=Allservers.sh_Script
-#
 ###########################################################
 
 err() {
