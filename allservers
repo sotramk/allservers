@@ -46,7 +46,7 @@ echo
 echo -e "   \e[0;32m [\e[1;37m4\e[0;32m] Upgrade the System only: \033[0mpamac update -a"
 echo -e "       \e[0;33m &\e[0;32m then run paccache: \033[0mpaache "
 echo
-echo -e "   \e[0;32m [\e[1;37m5\e[0;32m] Upgrade the System & AUR only: \033[0mpamac update -a"
+echo -e "   \e[0;32m [\e[1;37m5\e[0;32m] Refresh Keys and Upgrade the System & AUR: \033[0mpamac update -a"
 echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpaccache "
 echo
 echo -e "   \e[0;32m [\e[1;37m6\e[0;32m] Delete \e[0;33mdb.lck\e[0;32m after interupted upgrade: \033[0mrm /var/lib/pacman/db.lck "
@@ -164,6 +164,9 @@ case "$option" in
 # Note double semicolon to terminate each option.
 
  "5")
+ echo
+ msg "Update Keys:"
+ sudo pacman -Sy gnupg archlinux-keyring manjaro-keyring && sudo pacman-key --init && sudo pacman-key --populate archlinux manjaro && sudo pacman-key --refresh-keys
  echo
  msg "Upgrading System & AUR: "
  echo
