@@ -37,17 +37,17 @@ echo
 echo -e "    [\e[1;37m1\e[0;32m] Create & update custom mirrorlist: \033[0mpacman-mirrors -ic"
 echo -e "       \e[0;33m &\e[0;32m then sync/refresh package lists: \033[0mpamac update -a --force-refresh"
 echo
-echo -e "   \e[0;32m [\e[1;37m2\e[0;32m] Option 1. \e[0;33mplus\e[0;32m Upgrade the System: \033[0mpamac update -a --force-refresh"
-echo -e "       \e[0;33m &\e[0;32m then run paccahe: \033[0mpaccache "
+echo -e "   \e[0;32m [\e[1;37m2\e[0;32m] Select fresh mirror plus Upgrade the System: \033[0mpacman-mirrors f5 and pamac update -a --force-refresh"
+echo -e "       \e[0;33m &\e[0;32m then run paccache: \033[0mpaccache "
 echo
-echo -e "   \e[0;32m [\e[1;37m3\e[0;32m] Option 1. \e[0;33mplus\e[0;32m Upgrade the System & AUR: \033[0mpamac update -a"
-echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpkgcacheclean "
+echo -e "   \e[0;32m [\e[1;37m3\e[0;32m] Upgrade the System & AUR: \033[0mpamac update -a"
+echo -e "       \e[0;33m &\e[0;32m then run paccache: \033[0mpaccache "
 echo
 echo -e "   \e[0;32m [\e[1;37m4\e[0;32m] Upgrade the System only: \033[0mpamac update -a"
-echo -e "       \e[0;33m &\e[0;32m then run paccache: \033[0mpaache "
+echo -e "       \e[0;33m &\e[0;32m then run paccache: \033[0mpaccache "
 echo
 echo -e "   \e[0;32m [\e[1;37m5\e[0;32m] Refresh Keys and Upgrade the System & AUR: \033[0mpamac update -a"
-echo -e "       \e[0;33m &\e[0;32m then run pkgCacheClean: \033[0mpaccache "
+echo -e "       \e[0;33m &\e[0;32m then run paccache: \033[0mpaccache "
 echo
 echo -e "   \e[0;32m [\e[1;37m6\e[0;32m] Delete \e[0;33mdb.lck\e[0;32m after interupted upgrade: \033[0mrm /var/lib/pacman/db.lck "
 echo -e "       \e[0;32m this should remedy the unable to lock database error. "
