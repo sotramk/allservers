@@ -34,7 +34,7 @@ echo
 echo -e " \e[0;33m   Enter Your chosen Option's number \e[0;32m[\e[1;37m?\e[0;32m] \e[4;37mOR\e[0m\e[0;32m hit \e[0;31mReturn\e[0;32m to \e[0;31mexit\e[0;32m. "
 echo
 echo
-echo -e "    [\e[1;37m1\e[0;32m] Create & update mirrorlist: \033[0mpacman-mirrors -ic all"
+echo -e "    [\e[1;37m1\e[0;32m] Create & update custom mirrorlist: \033[0mpacman-mirrors -ic"
 echo -e "       \e[0;33m &\e[0;32m then sync/refresh package lists: \033[0mpamac update -a --force-refresh"
 echo
 echo -e "   \e[0;32m [\e[1;37m2\e[0;32m] Option 1. \e[0;33mplus\e[0;32m Upgrade the System: \033[0mpamac update -a --force-refresh"
@@ -98,12 +98,10 @@ case "$option" in
  msg "recent versions of the installation packages in "
  msg "/var/cache/pacman/pkg directory:"
  echo
- #sudo pkgcacheclean -kv
  sudo paccache -rv -k 2
  echo
- msg "pkgCacheClean has done its job. "
+ msg "paccache has done its job. "
  echo
- #locate --existing --regex "\.pac(new|orig\save)$"
  sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
@@ -130,12 +128,9 @@ case "$option" in
  msg "/var/cache/pacman/pkg directory:"
  echo
  sudo paccache -rv -k 2
-
  echo
  msg "paccache has done its job. "
  echo
- #locate --existing --regex "\.pac(new|orig\save)$"
- #grep --extended-regexp "pac(new|save)" /var/log/pacman.log
  sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
@@ -148,16 +143,14 @@ case "$option" in
  echo
  msg "System update complete."
  echo
- msg "pkgCacheClean will now remove all but the 2 most "
+ msg "paccache will now remove all but the 2 most "
  msg "recent versions of the installation packages in "
  msg "/var/cache/pacman/pkg directory:"
  echo
- #sudo pkgcacheclean -kv
  sudo paccache -rv -k 2
  echo
- msg "pkgCacheClean has done its job. "
+ msg "paccache has done its job. "
  echo
- #locate --existing --regex "\.pac(new|orig\save)$"
  sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
@@ -173,16 +166,14 @@ case "$option" in
  echo
  msg "System including AUR packages are up to date. "
  echo
- msg "pkgCacheClean will now remove all but the 2 most "
+ msg "paccache will now remove all but the 2 most "
  msg "recent versions of the installation packages in "
  msg "/var/cache/pacman/pkg directory:"
  echo
- #sudo pkgcacheclean -kv
  sudo paccache -rv -k 2
  echo
- msg "pkgCacheClean has done its job. "
+ msg "paccache has done its job. "
  echo
- #locate --existing --regex "\.pac(new|orig\save)$"
  sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
@@ -197,10 +188,9 @@ case "$option" in
  echo
  pamac update -a
  echo
- #sudo pkgcacheclean -kv
  sudo paccache -rv -k-2
  echo
-# locate --existing --regex "\.pac(new|orig\save)$"
+ sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
 
