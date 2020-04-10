@@ -125,15 +125,14 @@ case "$option" in
  echo
  msg "System including AUR packages are up to date."
  echo
- msg "pkgCacheClean will now remove all but the 2 most "
+ msg "paccache will now remove all but the 2 most "
  msg "recent versions of the installation packages in "
  msg "/var/cache/pacman/pkg directory:"
  echo
- #sudo pkgcacheclean -kv
  sudo paccache -rv -k 2
 
  echo
- msg "pkgCacheClean has done its job. "
+ msg "paccache has done its job. "
  echo
  #locate --existing --regex "\.pac(new|orig\save)$"
  #grep --extended-regexp "pac(new|save)" /var/log/pacman.log
