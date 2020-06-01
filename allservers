@@ -4,9 +4,7 @@
 # written by handy, with a little help from others, it is
 # released under a free for all public domain license, do what
 # you will with it.
-
 ###########################################################
-
 err() {
    ALL_OFF="\e[1;0m"
    BOLD="\e[1;1m"
@@ -14,7 +12,6 @@ err() {
     local mesg=$1; shift
     printf "${RED}==>${ALL_OFF}${BOLD} ${mesg}${ALL_OFF}\n" "$@" >&2
 }
-
 msg() {
    ALL_OFF="\e[1;0m"
    BOLD="\e[1;1m"
@@ -22,12 +19,8 @@ msg() {
     local mesg=$1; shift
     printf "${GREEN}==>${ALL_OFF}${BOLD} ${mesg}${ALL_OFF}\n" "$@" >&2
 }
-
-
 # The menu:
-
 clear # Clear the screen.
-
 echo
 echo -e "\e[1;32m                             allservers"
 echo
@@ -40,7 +33,7 @@ echo
 echo -e "   \e[0;32m [\e[1;37m2\e[0;32m] Select fresh mirror plus Upgrade the System: \033[0mpacman-mirrors f5 and pamac update -a --force-refresh"
 echo -e "       \e[0;33m &\e[0;32m then run paccache: \033[0mpaccache "
 echo
-echo -e "   \e[0;32m [\e[1;37m3\e[0;32m] Upgrade the System & AUR: \033[0mpamac update -a"
+echo -e "   \e[0;32m [\e[1;37m3\e[0;32m] Upgrade the System & AUR with YAY: \033[0myay -Syu"
 echo -e "       \e[0;33m &\e[0;32m then run paccache: \033[0mpaccache "
 echo
 echo -e "   \e[0;32m [\e[1;37m4\e[0;32m] Upgrade the System only: \033[0mpamac update -a"
@@ -54,12 +47,9 @@ echo -e "       \e[0;32m this should remedy the unable to lock database error. "
 echo
 echo -e "\033[1m  Enter the Number of Your Choice: \033[0m"
 echo
-
 read option
-
 case "$option" in
 # Note variable is quoted.
-
  "1")
  echo
  msg "Create Mirror List and Update System:"
@@ -76,7 +66,6 @@ case "$option" in
  echo
  ;;
 # Note double semicolon to terminate each option.
-
  "2")
  echo
  msg "Select Mirror and update system:"
@@ -105,7 +94,6 @@ case "$option" in
  sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
-
  "3")
  echo
  msg "Processing mirrors:"
@@ -116,7 +104,7 @@ case "$option" in
  msg "the mirrorlist has now been refreshed."
  echo
  msg "Refreshing your pacman database and upgrading system and AUR:"
- pamac update -a --force-refresh
+ yay -Syyu
  echo
  msg "Your mirrors & package database are now synchronised."
  echo
@@ -134,7 +122,6 @@ case "$option" in
  sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
-
  "4")
  echo
  msg "Upgrading System:"
@@ -154,7 +141,6 @@ case "$option" in
  sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
-
  "5")
  echo
  msg "Update Keys:"
@@ -177,7 +163,6 @@ case "$option" in
  sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
-
 "6")
  echo
  msg "About to delete /var/lib/pacman/db.lck: "
@@ -193,10 +178,5 @@ case "$option" in
  sudo pacdiff
  ;;
 # Note double semicolon to terminate each option.
-
-
-
-
 esac
-
 exit 0
